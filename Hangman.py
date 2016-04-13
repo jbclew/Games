@@ -1,5 +1,4 @@
 import sys
-import time
 import os
 import random
 import platform
@@ -65,10 +64,8 @@ def PrintHangman(no_of_wrong):
     print"Guesses Left:",no_right,
     print"     ",
     print"No. of Wrong Guesses:",
-    for i in range(0,no_of_wrong):
-        print' [X] ',
-    for i in range(0,no_right):
-        print' [ ] ',
+    print' [X] '* no_of_wrong,
+    print' [ ] '* no_right,
 
 wordplace=SetWordplace(word)
 ver=platform.system()
