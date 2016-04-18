@@ -8,7 +8,7 @@ import time
 ver=platform.system()
 if ver=='Windows':
     os.system("cls")
-    os.system("mode con cols=150 lines=30")
+    os.system("mode con cols=150 lines=80")
 else:
     os.system('clear')
     os.system("stty columns 150,60")
@@ -194,6 +194,7 @@ def PrintDashboard():
     print"\n \n"
     print"   HP: %d/%d     XP: %d      Gold: %d      Armor: %s   AC:%d     Damage: %s(%d-%d)     Level: %d     Name: %s "% (PlayerClass.currenthp,PlayerClass.maxhp,PlayerClass.xp,PlayerClass.gold,PlayerClass.armor,PlayerClass.ac,PlayerClass.weapon,PlayerClass.lowdamage,PlayerClass.highdamage,PlayerClass.level,PlayerClass.name)
     print"\n \n"
+    print "Hall: %s |Rm1: %s |Rm2: %s |Rm3: %s |Rm4 chest: %s |Rm4 pass: %s |Rm5: %s |Rm6: %s |Rm6 pass: %s|Rm7: %s |Rm8: %s"%(RoomsClear.hallway,RoomsClear.room1, RoomsClear.room2, RoomsClear.room3,RoomsClear.room4chest,RoomsClear.room4pass,RoomsClear.room5,RoomsClear.room6,RoomsClear.room6pass,RoomsClear.room7,RoomsClear.room8)
     print"-----------------------------------------------------------------------------------------------------------------------------------"
 
 def WelcomeCharacter():
@@ -500,6 +501,8 @@ def Hallway(monsterlist,rolllist):
             pickupsword=True
         PrintDashboard()
         RoomsClear.hallway==True
+        print"Just set hallway to true"
+        print "Hallway: ",RoomsClear.hallway
         print"From here you there is a door to your south or you can leave the dungeon."
         leaveorgo=raw_input("Open the (D)oor or (L)eave dungeon: ")
         if leaveorgo=='D' or leaveorgo=='d':
@@ -832,26 +835,11 @@ def Room5(monsterlist,rolllist):
                         Room3(monsterlist,rolllist)
                     if room5choice2=='E' or room5choice=='e':
                         Room4(monsterlist,rolllist)
-                room5choice2=raw_input("Door to the (N)orth, Door to the (E)ast, Disarm (A)rrows?: ")
-        
-        #Do we ever get to this point below ?  Yes if user does not pick any correct choices
-        
-        room5choice3=raw_input("Door to the (N)orth, Door to the (E)ast?: ")
-        if room5choice2=='N' or room5choice=='n':
-            if RoomsClear.room5==True:
-                print"You open the door to the North"
-                Room3(monsterlist,rolllist)
-            if RoomsClear.room5==False:
-                Room5Trap(rolllist)
-                Room3(monsterlist,rolllist)
-        if room5choice2=='E' or room5choice=='e':
-            print"You open the door to the East"
-            if RoomsClear.room5==True:
-                Room4(monsterlist,rolllist)
-            if RoomsClear.room5==False:
-                Room5Trap(rolllist)
-                Room4(monsterlist,rolllist)
-
+                room5choice2=raw_input("Door to the (N)orth, Door to the (E)ast, Disarm (A)rrows?: ")      
+                if room5choice2=='N' or room5choice=='n':
+                    Room3(monsterlist,rolllist)
+                if room5choice2=='E' or room5choice=='e':
+                    Room4(monsterlist,rolllist)
 def Room6(monsterlist,rolllist):
     PrintDashboard()
     if RoomsClear.room6 ==True and RoomsClear.room6pass==True:
