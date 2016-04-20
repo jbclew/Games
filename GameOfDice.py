@@ -24,14 +24,14 @@ def RollDice():
         user_roll=random.randint(1,6)
         print "Your roll: %d"%user_roll,
         time.sleep(0.1)
-        print "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b",    
+        print "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b",
         i=i+1
     print"\n"
     while j<40:
         comp_roll=random.randint(1,6)
         print "Computers roll: %d"%comp_roll,
         time.sleep(0.1)
-        print "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b",    
+        print "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b",
         j=j+1
     print"\n"
     return user_roll,comp_roll
@@ -84,7 +84,7 @@ while in_game=='Y':
     user_roll,comp_roll=RollDice()
     money,winnings=WhoWon(user_roll,comp_roll,bet,money,winnings)
     Dashboard(money)
-    if money < 1: 
+    if money < 1:
         print"Game Over.  You ran out of money! "
         in_game=raw_input("Would you like to play again? (Y) or (N): ")
         in_game=in_game.upper()
@@ -95,7 +95,7 @@ while in_game=='Y':
             bet=PlaceBet(money)
             user_roll,comp_roll=RollDice()
             money,winnings=WhoWon(user_roll,comp_roll,bet,money,winnings)
-            Dashboard(money)    
+            Dashboard(money)
     in_game=raw_input("Would you like to play again? (Y) or (N): ")
     in_game=in_game.upper()
     if in_game=='N':
@@ -108,6 +108,3 @@ while in_game=='Y':
             f.write(money)
             f.close()
         sys.exit()
-        
-
-    
