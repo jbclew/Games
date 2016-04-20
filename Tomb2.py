@@ -12,7 +12,7 @@ if ver=='Windows':
 else:
     os.system('clear')
     os.system("stty columns 150,60")
-    
+
 #Set inital values for the character
 print"\n"
 name=raw_input("Enter the name of your Adventurer: ")
@@ -204,11 +204,11 @@ The final straw came when a stiff breeze blew through the village and knocked yo
 kicked you out. With nowhere to go you stumble through the forest searching for food only to find the entrance of a dark
 tomb. It will at least provide you shelter for the night.''' % PlayerClass.name
     if PlayerClass.maxhp>6 and PlayerClass.maxhp<11:
-         welcometext='''  You are a very average person %s.  All your life you have never exceled at anything or have been noticed by anyone.
+        welcometext='''  You are a very average person %s.  All your life you have never exceled at anything or have been noticed by anyone.
 Lost in thought about what to do next in life, you walk through the forest and stumble across the entrance of a dark tomb.
 "This could be the way to make a name for myself", you think as you enter in.''' % PlayerClass.name 
     if PlayerClass.maxhp>10:
-         welcometext='''  You are quite the fierce warrior %s. You have bested many in the arenas and continue to impress everyone with your skill and
+        welcometext='''  You are quite the fierce warrior %s. You have bested many in the arenas and continue to impress everyone with your skill and
 ability to defeat even the most ubiquitous of enemies.  Off to prove you are the elitess of the elite you travel through the
 forest to the hidden tomb of which few have ever returned from.  The entrance is dark and you step inside.''' % PlayerClass.name       
     return(welcometext)    
@@ -239,7 +239,7 @@ def ChangeName(rolllist):
         if lastthree[0]==20 and lastthree[1]==20 and lastthree[2]==20:
             newname='%s the Fortunate'% PlayerClass.name
             PlayerClass.name=newname
-        return   
+        return
         
 def PlayerToHit(rolllist):
     d20=Roll()
@@ -282,7 +282,7 @@ def PlayerDamage(dammod):
         damage=int(round(float(PlayerClass.level)/float(MonsterClass.level))*(random.randint(PlayerClass.lowdamage,PlayerClass.highdamage)*dammod))
         if damage==0:
             damage=1
-    if dammod <0:      
+    if dammod <0:
         print"You are attacking %s" %MonsterClass.name
         print"You did %d damage to yourself!" %selfdamage
     if dammod > -1:

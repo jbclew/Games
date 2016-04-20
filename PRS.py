@@ -83,7 +83,7 @@ def header(human_choice,comp_choice,user_stats,comp_stats):
     print"------------------------------------------------------------------------------------------------------------------------------"
     return
  
- play_again='Y'
+play_again='Y'
     
 while play_again=='Y':
     human_choice,comp_choice=choose(choices) 
