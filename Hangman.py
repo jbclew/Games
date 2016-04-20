@@ -17,8 +17,8 @@ while in_game==True:
         wordplace={}
         for i in range(0,len(word)):
             wordplace.update({word[i]:i})
-        return wordplace  
-       
+        return wordplace
+
     def AskGuess(no_of_wrong,avail_letters,word,guessed_list,correct_guess,wordplace):
         print"\n"
         print "======================================================================================"
@@ -26,7 +26,7 @@ while in_game==True:
         print"Available Letters: ",
         for leng in range(0,len(avail_letters)):
             print avail_letters[leng],
-        print"\n\n\n"    
+        print"\n\n\n"
         guess=raw_input("Enter a letter: ")
         print"\n"
         guess=guess.upper()
@@ -58,7 +58,7 @@ while in_game==True:
             print "You Win!!!!!!!"
             print"\n"
             no_of_wrong=6
-            return avail_letters,no_of_wrong,guessed_list             
+            return avail_letters,no_of_wrong,guessed_list
         return avail_letters,no_of_wrong,guessed_list
 
     def PrintHangman(no_of_wrong):

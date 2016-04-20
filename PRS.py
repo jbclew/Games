@@ -82,11 +82,11 @@ def header(human_choice,comp_choice,user_stats,comp_stats):
     print"Computer:  Wins: %d   Losses: %d   Ties: %d    Times picked Paper: %d      Times picked Rock: %d     Times picked Scissors: %d"%(comp_stats['Wins'],comp_stats['Losses'],comp_stats['Ties'],comp_stats['Paper'],comp_stats['Rock'],comp_stats['Scissors'])
     print"------------------------------------------------------------------------------------------------------------------------------"
     return
- 
+
 play_again='Y'
     
 while play_again=='Y':
-    human_choice,comp_choice=choose(choices) 
+    human_choice,comp_choice=choose(choices)
     winner,user_stats,comp_stats=pick_winner(human_choice,comp_choice,user_stats,comp_stats)
     print"\n"
     print"Computer has: %s "%comp_choice

@@ -74,7 +74,7 @@ def header(human_choice,comp_choice,user_stats,comp_stats):
     return
 
 counter=0
-  
+
 while counter<100000:
     human_choice,comp_choice=choose(choices)
     winner,user_stats,comp_stats=pick_winner(human_choice,comp_choice,user_stats,comp_stats)

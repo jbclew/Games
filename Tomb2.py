@@ -331,16 +331,16 @@ def PickUpWeapon(input,weapon):
     i=0
     j=0
     while input !='P'and input !='p' and input !='l'and input !='L':
-        if i>2 and i <5:
+        if i>1 and i <4:
             print"What are you daft? Type (P) or (L) this isn't Advanced Ethereal Conjuring"
-        if i>4 and i <7:
+        if i>3 and i <6:
             print"Look, if you don't want to play you don't have to, just go outside and play in traffic or something!"
-        if i>6 and i <10:
+        if i>5 and i <9:
             print"Quit it, stop poking me!"
-        if i>9:
+        if i>8:
             print"Well two can play at this game"
             time.sleep(2)
-            while j < 50:
+            while j < 30:
                 print"(P) or (L)!!!!!!"
                 j=j+1
                 i=0

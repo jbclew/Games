@@ -40,7 +40,7 @@ def PlaceBet(money):
     bet=raw_input("How much money do you want to bet? ")
     try:
         bet=int(bet)
-    except:
+    except ValueError:
         print"Not a valid bet"
         bet=raw_input("How much money do you want to bet? ")
         bet=int(bet)
