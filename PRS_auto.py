@@ -5,7 +5,6 @@ user_stats={'Paper':0,'Rock':0,'Scissors':0,'Wins':0,'Losses':0,'Ties':0}
 comp_stats={'Paper':0,'Rock':0,'Scissors':0,'Wins':0,'Losses':0,'Ties':0}
 
 def choose(choices):
-    choice=""
     human_choice=random.choice(choices)
     comp_choice=random.choice(choices)
     return human_choice,comp_choice
@@ -73,11 +72,11 @@ def header(human_choice,comp_choice,user_stats,comp_stats):
     print"Computer:  Wins: %d   Losses: %d   Ties: %d    Times picked Paper: %d      Times picked Rock: %d     Times picked Scissors: %d"%(comp_stats['Wins'],comp_stats['Losses'],comp_stats['Ties'],comp_stats['Paper'],comp_stats['Rock'],comp_stats['Scissors'])
     print"------------------------------------------------------------------------------------------------------------------------------"
     return
-    
+
 counter=0
-    
+  
 while counter<100000:
-    human_choice,comp_choice=choose(choices)    
+    human_choice,comp_choice=choose(choices)
     winner,user_stats,comp_stats=pick_winner(human_choice,comp_choice,user_stats,comp_stats)
     counter += 1
 header(human_choice,comp_choice,user_stats,comp_stats)
