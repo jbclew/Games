@@ -84,7 +84,7 @@ def header(human_choice,comp_choice,user_stats,comp_stats):
     return
 
 play_again='Y'
-    
+
 while play_again=='Y':
     human_choice,comp_choice=choose(choices)
     winner,user_stats,comp_stats=pick_winner(human_choice,comp_choice,user_stats,comp_stats)

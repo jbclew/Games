@@ -378,7 +378,7 @@ def PickUpArmor(input,armorloot):
         i=i+1
     if input=='p' or input=='P':
         PlayerClass.armor=armorloot[0]
-        PlayerClass.ac=armorloot[1]   
+        PlayerClass.ac=armorloot[1]
         ChoiceTaken() 
         return
     if input=='l' or input=='L':
@@ -424,7 +424,7 @@ def CheckLevel():
         print"You gained %d hp!"%newhp
     return 
     
-def Battle(rolllist): 
+def Battle(rolllist):
     print"\n"
     print"You are fighting a %s.  Monster Level: %d   Monster Armor: %d   Damage: %d-%d   Monster hp: %d"% (MonsterClass.name,MonsterClass.level,MonsterClass.ac,MonsterClass.lowdamage,MonsterClass.highdamage,MonsterClass.maxhp)
     while (PlayerClass.currenthp>0) and (MonsterClass.currenthp>0):
@@ -474,13 +474,13 @@ def Loot(weaponlist,armorlist):
     if armorloot =='No Armor':
         print"Looting Enemy......  Enemy had no Armor"
     if armorloot !='No Armor':
-        print"Looting Enemy......  Enemy had Armor: %s  Armor:%d"%(armorloot[0],armorloot[1])   
+        print"Looting Enemy......  Enemy had Armor: %s  Armor:%d"%(armorloot[0],armorloot[1])
     if weaponloot !='No Weapons':     
-        input=raw_input("(P)ick up %s  (L)eave the %s alone: "%(weaponloot[0],weaponloot[0]))
-        PickUpWeapon(input,weaponloot)
+        winput=raw_input("(P)ick up %s  (L)eave the %s alone: "%(weaponloot[0],weaponloot[0]))
+        PickUpWeapon(winput,weaponloot)
     if armorloot !='No Armor':
-        input=raw_input("(P)ick up %s  (L)eave the %s alone: "%(armorloot[0],armorloot[0]))
-        PickUpArmor(input,armorloot)
+        winput=raw_input("(P)ick up %s  (L)eave the %s alone: "%(armorloot[0],armorloot[0]))
+        PickUpArmor(winput,armorloot)
     return goldloot
    
 #Entrance Room
@@ -745,7 +745,7 @@ def Room4(monsterlist,rolllist):
                 RoomsClear.room4pass=True
                 RoomsClear.room6pass=True
             if room4button=='D' or room4button=='d':
-                print"You get up off the throne." 
+                print"You get up off the throne."
             Room4(monsterlist,rolllist)
     if RoomsClear.room4chest==True and RoomsClear.room4pass==True:
         print"This 40x50 foot room is well lit by torches. In the back of the room there is a throne. "
@@ -883,7 +883,7 @@ def Room6(monsterlist,rolllist):
         attackorrun=raw_input("Do you want to (A)ttack or (R)un away?")
         if attackorrun=='A' or attackorrun=='a':
             SelectMonster(monsterlist,False,False)
-            Battle(rolllist)            
+            Battle(rolllist)
             SelectMonster(monsterlist,False,False)
             Battle(rolllist)
             RoomsClear.room6=True
