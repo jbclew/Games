@@ -45,7 +45,7 @@ class PlayerClass:
     ac=initarmor[1]
     xp=0
     name=name
-    
+
 class MonsterClass:
     name="name"
     maxhp=1
@@ -55,8 +55,8 @@ class MonsterClass:
     highdamage=1
     ac=1
     xp=1
-    
-  
+
+
 class RoomsClear:
     hallway=False
     room1=False
@@ -99,11 +99,11 @@ def SelectMonster(monsterlist,goblin,boss):
         MonsterClass.highdamage=monster[4]
         MonsterClass.ac=monster[5]
         MonsterClass.xp=monster[6]
-        
+
 def SelectWeapon(weaponlist):
     weapon=weaponlist[random.randint(0,(len(weaponlist)-1))]
     return weapon
-    
+
 def SelectArmor(armorlist):
     armor=armorlist[random.randint(0,(len(weaponlist)-1))]
     return armor
@@ -165,9 +165,9 @@ def GoblinBuying():
                     print"you bought everything"
                     inarmor=False
         if buymenu=='E' or buymenu=='e':
-            inbuying=False 
+            inbuying=False
     return
-                
+
 rolllist=[]
 
 def PrintDashboard():
@@ -199,19 +199,19 @@ def PrintDashboard():
 
 def WelcomeCharacter():
     if PlayerClass.maxhp==5 or PlayerClass.maxhp==6:
-        welcometext='''  All your life %s you have been picked on and pushed around.  Your puny size has made you an outcast in your own village.  
+        welcometext='''  All your life %s you have been picked on and pushed around.  Your puny size has made you an outcast in your own village.
 The final straw came when a stiff breeze blew through the village and knocked you on your back.  Your father disgraced, has
 kicked you out. With nowhere to go you stumble through the forest searching for food only to find the entrance of a dark
 tomb. It will at least provide you shelter for the night.''' % PlayerClass.name
     if PlayerClass.maxhp>6 and PlayerClass.maxhp<11:
         welcometext='''  You are a very average person %s.  All your life you have never exceled at anything or have been noticed by anyone.
 Lost in thought about what to do next in life, you walk through the forest and stumble across the entrance of a dark tomb.
-"This could be the way to make a name for myself", you think as you enter in.''' % PlayerClass.name 
+"This could be the way to make a name for myself", you think as you enter in.''' % PlayerClass.name
     if PlayerClass.maxhp>10:
         welcometext='''  You are quite the fierce warrior %s. You have bested many in the arenas and continue to impress everyone with your skill and
 ability to defeat even the most ubiquitous of enemies.  Off to prove you are the elitess of the elite you travel through the
 forest to the hidden tomb of which few have ever returned from.  The entrance is dark and you step inside.''' % PlayerClass.name
-    return(welcometext)    
+    return(welcometext)
 
 def Roll():
     i=0
@@ -224,7 +224,7 @@ def Roll():
         if num>9:
             print "Roll (1d20): %d"% num,
             time.sleep(0.1)
-            print "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b",       
+            print "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b",
         i=i+1
     return num
 
@@ -240,7 +240,7 @@ def ChangeName(rolllist):
             newname='%s the Fortunate'% PlayerClass.name
             PlayerClass.name=newname
         return
-        
+
 def PlayerToHit(rolllist):
     d20=Roll()
     print"--------------------Your Attack------------------------------"
@@ -325,7 +325,6 @@ def MonsterDamage(dammod):
         print"%s did %d damage to you!"% (MonsterClass.name,monsterdamage)
         monsterselfdamage=0
     return (monsterdamage,monsterselfdamage)
-       
 
 def PickUpWeapon(input,weapon):
     i=0
@@ -351,7 +350,7 @@ def PickUpWeapon(input,weapon):
         PlayerClass.weapon=weapon[0]
         PlayerClass.lowdamage=weapon[1]
         PlayerClass.highdamage=weapon[2]
-        ChoiceTaken() 
+        ChoiceTaken()
         return
     if input=='l' or input=='L':
         return
@@ -379,16 +378,16 @@ def PickUpArmor(input,armorloot):
     if input=='p' or input=='P':
         PlayerClass.armor=armorloot[0]
         PlayerClass.ac=armorloot[1]
-        ChoiceTaken() 
+        ChoiceTaken()
         return
     if input=='l' or input=='L':
         return
-    
+
 def ChoiceTaken():
     print"\n"
     print"                      ------------------------Choice Accepted!---------------------------"
     print"\n"
-       
+
 def CalculateXP():
     PlayerClass.xp=PlayerClass.xp+(MonsterClass.xp*(float(MonsterClass.level)/float(PlayerClass.level)))
     return
@@ -422,8 +421,8 @@ def CheckLevel():
         PlayerClass.maxhp=PlayerClass.currenthp
         PlayerClass.level=level
         print"You gained %d hp!"%newhp
-    return 
-    
+    return
+
 def Battle(rolllist):
     print"\n"
     print"You are fighting a %s.  Monster Level: %d   Monster Armor: %d   Damage: %d-%d   Monster hp: %d"% (MonsterClass.name,MonsterClass.level,MonsterClass.ac,MonsterClass.lowdamage,MonsterClass.highdamage,MonsterClass.maxhp)
@@ -451,7 +450,7 @@ def Battle(rolllist):
         goldloot=Loot(weaponlist,armorlist)
         PlayerClass.gold=PlayerClass.gold+goldloot
     return rolllist
-    
+
 def Loot(weaponlist,armorlist):
     rollweapon=random.randint(1,20)
     rollarmor=random.randint(1,20)
@@ -465,7 +464,7 @@ def Loot(weaponlist,armorlist):
         print "Armor loot is now: ",armorlist
     else:
         armorloot="No Armor"
-    goldloot=rollgold    
+    goldloot=rollgold
     print"Looting Enemy......  Enemy had %d Gold"%goldloot
     if weaponloot =='No Weapons':
         print"Looting Enemy......  Enemy had no Weapons"
@@ -475,14 +474,14 @@ def Loot(weaponlist,armorlist):
         print"Looting Enemy......  Enemy had no Armor"
     if armorloot !='No Armor':
         print"Looting Enemy......  Enemy had Armor: %s  Armor:%d"%(armorloot[0],armorloot[1])
-    if weaponloot !='No Weapons':     
+    if weaponloot !='No Weapons':
         winput=raw_input("(P)ick up %s  (L)eave the %s alone: "%(weaponloot[0],weaponloot[0]))
         PickUpWeapon(winput,weaponloot)
     if armorloot !='No Armor':
         winput=raw_input("(P)ick up %s  (L)eave the %s alone: "%(armorloot[0],armorloot[0]))
         PickUpArmor(winput,armorloot)
     return goldloot
-   
+
 #Entrance Room
 welcometext=WelcomeCharacter()
 print welcometext
@@ -530,7 +529,7 @@ def Hallway(monsterlist,rolllist):
             pickupsword=True
         PrintDashboard()
         RoomsClear.hallway==True
-        return   
+        return
 
 #Room #1
 def Room1(monsterlist,rolllist):
@@ -542,11 +541,11 @@ def Room1(monsterlist,rolllist):
         if southoreast=='S' or southoreast=='s':
             print"You head south and open the door"
             Room7(monsterlist,rolllist)
-            return 
+            return
         if southoreast=='E' or southoreast=='e':
             print"You head east down the hallway, after 30 feet it turns south. After 30 more feet it heads east again"
             Room2Instersect(monsterlist,rolllist)
-        
+
     if RoomsClear.room1 ==False:
         print "There is a door in front of you, as you open it, it emits a loud creaking noise.  The noise alerts a creature in the dimly lit room."
         print "It charges towards you."
@@ -561,11 +560,11 @@ def Room1(monsterlist,rolllist):
         if southoreast=='S' or southoreast=='s':
             print"You head south and open the door"
             Room7(monsterlist,rolllist)
-            return 
+            return
         if southoreast=='E' or southoreast=='e':
             print"You head east down the hallway, after 30 feet it turns south. After 30 more feet it heads east again"
             Room2Instersect(monsterlist,rolllist)
-            return 
+            return
         if attackorrunn=='R' or attackorrun=='r':
             print "You run back into the hallway, closing the door behind you."
             RoomsClear.room1==False
@@ -580,7 +579,7 @@ def Room1(monsterlist,rolllist):
         print"Today is a glorious day! You head back to town to start your new life"
         print"The End"
         sys.exit()
-        
+
 def Room2Instersect(monsterlist,rolllist):
     PrintDashboard()
     print"There is a door here, the hallway also heads north and south."
@@ -589,12 +588,12 @@ def Room2Instersect(monsterlist,rolllist):
         Room2(monsterlist,rolllist)
     if doororhall=='N' or doororhall=='n':
         print"You travel north up the hallway for 30 feet and it turns west.  After 30 feet it opens into a room."
-        Room1(monsterlist,rolllist)     
+        Room1(monsterlist,rolllist)
     if doororhall=='S' or doororhall=='s':
         print"You travel south down the hallway for 50 feet and it opens into a room"
         Room3(monsterlist,rolllist)
-            
- #Room #2
+
+#Room #2
 def Room2(monsterlist,rolllist):
     PrintDashboard()
     if RoomsClear.room2 ==True:
@@ -650,7 +649,6 @@ def Room3(monsterlist,rolllist):
         if buyfromgoblin=='B' or buyfromgoblin=='b':
             GoblinBuying()
             Room3(monsterlist,rolllist)
-            
 
 def Room4Trap(rolllist):
     print"As you open the chest, a flame shoots at you. Make a savings roll"
@@ -670,18 +668,18 @@ def Room4Trap(rolllist):
         PlayerClass.currenthp=PlayerClass.currenthp-flamedam
         if PlayerClass.currenthp<1:
             print"You have died!"
-            sys.exit()   
+            sys.exit()
     if result >9 and result <16:
         flamedam=(random.randint(2,5))/2
         print"The flame barely singes you for %d damage!"%flamedam
         PlayerClass.currenthp=PlayerClass.currenthp-flamedam
         if PlayerClass.currenthp<1:
             print"You have died!"
-            sys.exit()       
+            sys.exit()
     if result > 15:
         print"You successfully dodged the flame!"
-    return           
-            
+    return
+
 def Room4(monsterlist,rolllist):
     PrintDashboard()
     if RoomsClear.room4chest==False and RoomsClear.room4pass==False:
@@ -727,9 +725,9 @@ def Room4(monsterlist,rolllist):
             PlayerClass.gold=PlayerClass.gold+goldsack
             RoomsClear.room4chest=True
             Room4(monsterlist,rolllist)
-        if room4choice=='S' or room4choice=='s':        
+        if room4choice=='S' or room4choice=='s':
             Room6(monsterlist,rolllist)
-    if RoomsClear.room4chest==True and RoomsClear.room4pass==False:    
+    if RoomsClear.room4chest==True and RoomsClear.room4pass==False:
         print"This 40x50 foot room is well lit by torches. In the back of the room there is a throne. "
         print"There is a door headed West in the north corner.  The room looks otherwise empty."
         print"What do you want to do?  Go through door to the West?  Sit in the Throne?"
@@ -755,10 +753,10 @@ def Room4(monsterlist,rolllist):
         room4choice=raw_input("Door to the(W)est. (S)ecret Passage:  ")
         if room4choice=='W' or room4choice=='w':
             Room5(monsterlist,rolllist)
-        if room4choice=='S' or room4choice=='s':        
-            Room6(monsterlist,rolllist)    
-    return    
-       
+        if room4choice=='S' or room4choice=='s':
+            Room6(monsterlist,rolllist)
+    return
+
 def Room5Trap(rolllist):
     print"As you open the door, arrows shoot out of the wall towards you. Make a savings roll"
     result=Roll()
@@ -777,18 +775,18 @@ def Room5Trap(rolllist):
         PlayerClass.currenthp=PlayerClass.currenthp-arrowdam
         if PlayerClass.currenthp<1:
             print"You have died!"
-            sys.exit()   
+            sys.exit()
     if result >9 and result <16:
         arrowdam=(random.randint(2,10))/2
         print"The arrow grazes you for %d damage!"%arrowdam
         PlayerClass.currenthp=PlayerClass.currenthp-arrowdam
         if PlayerClass.currenthp<1:
             print"You have died!"
-            sys.exit()       
+            sys.exit()
     if result > 15:
         print"You successfully dodged the arrow!"
     return
-    
+
 def Room5(monsterlist,rolllist):
     PrintDashboard()
     if RoomsClear.room5==False:
@@ -822,7 +820,7 @@ def Room5(monsterlist,rolllist):
                     PlayerClass.currenthp=PlayerClass.currenthp-disarmdamage
                     if PlayerClass.currenthp<1:
                         print"You have died"
-                        sys.exit()                     
+                        sys.exit()
                 if disarmtrap>1 and disarmtrap<20:
                     print"You could not figure out how to disarm the trap!"
                 if disarmtrap>19:
@@ -835,7 +833,7 @@ def Room5(monsterlist,rolllist):
                         Room3(monsterlist,rolllist)
                     if room5choice2=='E' or room5choice=='e':
                         Room4(monsterlist,rolllist)
-                room5choice2=raw_input("Door to the (N)orth, Door to the (E)ast, Disarm (A)rrows?: ")      
+                room5choice2=raw_input("Door to the (N)orth, Door to the (E)ast, Disarm (A)rrows?: ")
                 if room5choice2=='N' or room5choice=='n':
                     Room3(monsterlist,rolllist)
                 if room5choice2=='E' or room5choice=='e':
@@ -893,7 +891,7 @@ def Room6(monsterlist,rolllist):
             print "You run back through the secret passage"
             RoomsClear.room6=False
             Room4(monsterlist,rolllist)
-            
+
 def Room7(monsterlist,rolllist):
     PrintDashboard()
     if RoomsClear.room7 ==True:
@@ -909,7 +907,7 @@ def Room7(monsterlist,rolllist):
         attackorrun=raw_input("Do you want to (A)ttack or (R)un away?")
         if attackorrun=='A' or attackorrun=='a':
             SelectMonster(monsterlist,False,False)
-            Battle(rolllist)            
+            Battle(rolllist)
             RoomsClear.room7=True
             Room7(monsterlist,rolllist)
         if attackorrun=='R' or attackorrun=='r':
@@ -928,12 +926,11 @@ def Room8(monsterlist,rolllist):
     room8choice=raw_input("(N)orth door. (S)outh Door.")
     if room8choice=='N' or room8choice=='n':
         RoomsClear.room8=True
-        Room1(monsterlist,rolllist) 
+        Room1(monsterlist,rolllist)
     if room8choice=='S' or room8choice=='s':
         RoomsClear.room8=True
         Room7(monsterlist,rolllist)
 
-        
 Hallway(monsterlist,rolllist)
 
 
