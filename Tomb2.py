@@ -80,7 +80,7 @@ def SelectMonster(monsterlist,goblin,boss):
         MonsterClass.lowdamage=10
         MonsterClass.highdamage=30
         MonsterClass.ac=9
-        MonsterClass.xp=5000    
+        MonsterClass.xp=5000
     if goblin == True:
         MonsterClass.name='Goblin Salesman'
         MonsterClass.maxhp=16
@@ -210,7 +210,7 @@ Lost in thought about what to do next in life, you walk through the forest and s
     if PlayerClass.maxhp>10:
         welcometext='''  You are quite the fierce warrior %s. You have bested many in the arenas and continue to impress everyone with your skill and
 ability to defeat even the most ubiquitous of enemies.  Off to prove you are the elitess of the elite you travel through the
-forest to the hidden tomb of which few have ever returned from.  The entrance is dark and you step inside.''' % PlayerClass.name       
+forest to the hidden tomb of which few have ever returned from.  The entrance is dark and you step inside.''' % PlayerClass.name
     return(welcometext)    
 
 def Roll():
@@ -324,7 +324,7 @@ def MonsterDamage(dammod):
     if dammod >=0:
         print"%s did %d damage to you!"% (MonsterClass.name,monsterdamage)
         monsterselfdamage=0
-    return (monsterdamage,monsterselfdamage)    
+    return (monsterdamage,monsterselfdamage)
        
 
 def PickUpWeapon(input,weapon):
