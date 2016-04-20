@@ -499,7 +499,7 @@ def Hallway(monsterlist,rolllist):
         if input =='P' or input =='p':
             pickupsword=True
         PrintDashboard()
-        RoomsClear.hallway==True
+        RoomsClear.hallway=True
         print"Just set hallway to true"
         print "Hallway: ",RoomsClear.hallway
         print"From here you there is a door to your south or you can leave the dungeon."
@@ -554,7 +554,7 @@ def Room1(monsterlist,rolllist):
             SelectMonster(monsterlist,False,False)
             Battle(rolllist)
             PrintDashboard()
-            RoomsClear.room1==True
+            RoomsClear.room1=True
             print"There is a door to the south, and a hallway to the east."
             southoreast=raw_input("(S)outh or (E)ast: ")
         if southoreast=='S' or southoreast=='s':
@@ -567,7 +567,7 @@ def Room1(monsterlist,rolllist):
             return
         if attackorrunn=='R' or attackorrun=='r':
             print "You run back into the hallway, closing the door behind you."
-            RoomsClear.room1==False
+            RoomsClear.room1=False
             Hallway(monsterlist,rolllist)
     if (RoomsClear.room1,RoomsClear.room2,RoomsClear.room3,RoomsClear.room4pass,RoomsClear.room5,RoomsClear.room6,RoomsClear.room7,RoomsClear.room8):
         print"As you go to leave the dungeon a figure appears from smoke in the middle of the room"
@@ -612,7 +612,7 @@ def Room2(monsterlist,rolllist):
             return
         if attackorrun=='R' or attackorrun=='r':
             print "You run back into the hallway, closing the door behind you."
-            RoomsClear.room2==False
+            RoomsClear.room2=False
             Room2Instersect(monsterlist,rolllist)
 
 def Room3(monsterlist,rolllist):
@@ -626,7 +626,7 @@ def Room3(monsterlist,rolllist):
             SelectMonster(monsterlist,True,False)
             Battle(rolllist)
             PrintDashboard()
-            RoomsClear.room3==True
+            RoomsClear.room3=True
             print"You can head back north or there is a door to the south."
             pickdirection=raw_input("Head back (N)orth, Open (D)oor to the south.")
             if pickdirection=='N' or pickdirection=='n':
@@ -704,7 +704,7 @@ def Room4(monsterlist,rolllist):
             if room4button=='P' or room4button=='p':
                 print"You press the button and a secret door opens on the west wall"
                 RoomsClear.room4pass=True
-                RoomsClear.room6pass
+                RoomsClear.room6pass=True
             if room4button=='D' or room4button=='d':
                 print"You get up off the throne."
         Room4(monsterlist,rolllist)
