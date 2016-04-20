@@ -172,22 +172,12 @@ rolllist=[]
 
 def PrintDashboard():
     print"\n\n\n\n\n\n\n\n\n"
-    '''print 'gold',PlayerClass.gold
-    print'armor',PlayerClass.armor
-    print'ac',PlayerClass.ac
-    print'weapon',PlayerClass.weapon
-    print'lowdam',PlayerClass.lowdamage
-    print'highdam',PlayerClass.highdamage
-    print'level',PlayerClass.level
-    print'name',PlayerClass.name
-    
     print"-----------------------------------------------------------------------------------------------------------------------------------"
     print"  _____          _           __   _   _          ___ _          _         ___     _             _     ___                  _  "
     print" |_   _|__ _ __ | |__   ___ / _| | |_| |_  ___  | _ (_)_ _ __ _| |_ ___  | _ \___| |__  ___ _ _| |_  |   \ _ _ ___ __ _ __| | "
     print"   | |/ _ \ '  \| '_ \ / _ \  _| |  _| ' \/ -_) |  _/ | '_/ _` |  _/ -_) |   / _ \ '_ \/ -_) '_|  _| |  ) | '_/ -_) _` / _` | "
     print"   |_|\___/_|_|_|_.__/ \___/_|    \__|_||_\___| |_| |_|_| \__,_|\__\___| |_|_\___/_.__/\___|_|  \__/ |___/|_| \___\__,_\__,_| "
     print"                                                                                                                                  "
-    '''
     print"-----------------------------------------------------------------------------------------------------------------------------------"
     print"-----------------------------------------------------DASHBOARD --------------------------------------------------------------------"
     print"-----------------------------------------------------------------------------------------------------------------------------------"
@@ -492,11 +482,11 @@ def Hallway(monsterlist,rolllist):
     if RoomsClear.hallway==False:
         print "\n\n"
         print" As you walk into the tomb from the north you trip over a skeleton.  Falling to the ground you come face to face with a small sword. "
-        input=raw_input("(P)ick up the sword.  (L)eave the sword alone, I'd rather bloody my knuckles fighting with my fists : ")
+        winput=raw_input("(P)ick up the sword.  (L)eave the sword alone, I'd rather bloody my knuckles fighting with my fists : ")
         PickUpWeapon(input,weaponlist[1])
-        if input == 'l' or input == 'L':
+        if winput == 'l' or winput == 'L':
             pickupsword=False
-        if input =='P' or input =='p':
+        if winput =='P' or winput =='p':
             pickupsword=True
         PrintDashboard()
         RoomsClear.hallway=True
@@ -521,14 +511,14 @@ def Hallway(monsterlist,rolllist):
             sys.exit()
     if RoomsClear.hallway==False and pickupsword==False:
         print"I am just going to assume you ran back to the hallway to retrieve the sword that you did not pick up before and not because you are a wimpering scared little coward."
-        input=raw_input("(P)ick up the sword.  (L)eave the sword alone, I'd rather bloody my knuckles fighting with my fists : ")
+        winput=raw_input("(P)ick up the sword.  (L)eave the sword alone, I'd rather bloody my knuckles fighting with my fists : ")
         PickUpWeapon(input,weaponlist[1])
-        if input == 'l' or input == 'L':
+        if winput == 'l' or winput == 'L':
             pickupsword=False
-        if input =='P' or input =='p':
+        if winput =='P' or winput =='p':
             pickupsword=True
         PrintDashboard()
-        RoomsClear.hallway==True
+        RoomsClear.hallway=True
         return
 
 #Room #1
