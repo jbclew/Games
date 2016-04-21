@@ -8,8 +8,8 @@ while IN_GAME==True:
     ALL_LETTERS=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
     avail_letters=ALL_LETTERS
     guessed_list=[]
-    word = random.choice(word_list)
-    len_of_word = len(word)
+    WORD = random.choice(WORD_LIST)
+    LEN_OF_WORD = len(WORD)
     no_of_wrong = 0
     correct_guess=[]
 
@@ -69,28 +69,28 @@ while IN_GAME==True:
         print' [X] '* no_of_wrong,
         print' [ ] '* no_right,
 
-    wordplace=set_word_place(word)
+    wordplace=set_word_place(WORD)
     ver=platform.system()
     if ver=='Windows':
         os.system("cls")
- 
+
     print"--------------------------------------------------------------------------------------"
     print"|                         Welcome to Hangman                                          |"
     print"--------------------------------------------------------------------------------------"
 
     while no_of_wrong < 6:
-        avail_letters,no_of_wrong,guessed_list=ask_guess(no_of_wrong,avail_letters,word,guessed_list,correct_guess,wordplace)
+        avail_letters,no_of_wrong,guessed_list=ask_guess(no_of_wrong,avail_letters,WORD,guessed_list,correct_guess,wordplace)
         print_hangman(no_of_wrong)
 
     if no_of_wrong >= 6:
         print"\n\n"
-        print"Game Over!!   The word was %s"%word
+        print"Game Over!!   The word was %s"%WORD
         print"\n"
         play_again=raw_input("Would you like to play again: Y or N: ")
         play_again=play_again.upper()
         if play_again != 'Y':
             sys.exit()
         if play_again == 'Y':
-            in_game=True
+            IN_GAME=True
             
     
