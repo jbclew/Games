@@ -2,8 +2,8 @@ import sys
 import os
 import random
 import platform
-in_game=True
-while in_game==True:
+IN_GAME=True
+while IN_GAME==True:
     word_list=('FATHOM','MARSH','MARCH','HARMS','MAJOR','MANGOS','ISOGRAM','BEACH','FLOWER','DEATH','COURTS','FLAMES','PHONE','ORGANISM','SOARING','MINORS','DOWNSTREAM','MISTAKE','SHOCKING','DUPLICATE','HOSPITAL','TRAMPOLINE','BLACKSMITH','AFTERSHOCK','ARTICHOKE')
     all_letters=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
     avail_letters=all_letters
