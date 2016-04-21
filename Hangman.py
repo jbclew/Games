@@ -4,9 +4,9 @@ import random
 import platform
 IN_GAME=True
 while IN_GAME==True:
-    word_list=('FATHOM','MARSH','MARCH','HARMS','MAJOR','MANGOS','ISOGRAM','BEACH','FLOWER','DEATH','COURTS','FLAMES','PHONE','ORGANISM','SOARING','MINORS','DOWNSTREAM','MISTAKE','SHOCKING','DUPLICATE','HOSPITAL','TRAMPOLINE','BLACKSMITH','AFTERSHOCK','ARTICHOKE')
-    all_letters=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
-    avail_letters=all_letters
+    WORD_LIST=('FATHOM','MARSH','MARCH','HARMS','MAJOR','MANGOS','ISOGRAM','BEACH','FLOWER','DEATH','COURTS','FLAMES','PHONE','ORGANISM','SOARING','MINORS','DOWNSTREAM','MISTAKE','SHOCKING','DUPLICATE','HOSPITAL','TRAMPOLINE','BLACKSMITH','AFTERSHOCK','ARTICHOKE')
+    ALL_LETTERS=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+    avail_letters=ALL_LETTERS
     guessed_list=[]
     word = random.choice(word_list)
     len_of_word = len(word)
