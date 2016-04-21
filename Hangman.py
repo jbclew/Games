@@ -4,22 +4,22 @@ import random
 import platform
 in_game=True
 while in_game==True:
-    wordlist=('FATHOM','MARSH','MARCH','HARMS','MAJOR','MANGOS','ISOGRAM','BEACH','FLOWER','DEATH','COURTS','FLAMES','PHONE','ORGANISM','SOARING','MINORS','DOWNSTREAM','MISTAKE','SHOCKING','DUPLICATE','HOSPITAL','TRAMPOLINE','BLACKSMITH','AFTERSHOCK','ARTICHOKE')
+    word_list=('FATHOM','MARSH','MARCH','HARMS','MAJOR','MANGOS','ISOGRAM','BEACH','FLOWER','DEATH','COURTS','FLAMES','PHONE','ORGANISM','SOARING','MINORS','DOWNSTREAM','MISTAKE','SHOCKING','DUPLICATE','HOSPITAL','TRAMPOLINE','BLACKSMITH','AFTERSHOCK','ARTICHOKE')
     all_letters=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
     avail_letters=all_letters
     guessed_list=[]
-    word = random.choice(wordlist)
+    word = random.choice(word_list)
     len_of_word = len(word)
     no_of_wrong = 0
     correct_guess=[]
 
-    def SetWordplace(word):
+    def set_word_place(word):
         wordplace={}
         for i in range(0,len(word)):
             wordplace.update({word[i]:i})
         return wordplace
 
-    def AskGuess(no_of_wrong,avail_letters,word,guessed_list,correct_guess,wordplace):
+    def ask_guess(no_of_wrong,avail_letters,word,guessed_list,correct_guess,wordplace):
         print"\n"
         print "======================================================================================"
         print"\n\n\n"
@@ -32,7 +32,7 @@ while in_game==True:
         guess=guess.upper()
         if guess in guessed_list:
             print "You already Guessed that"
-            AskGuess(no_of_wrong,avail_letters,word,guessed_list,correct_guess,wordplace)
+            ask_guess(no_of_wrong,avail_letters,word,guessed_list,correct_guess,wordplace)
         print"You Guessed: ",guess
 
         guessed_list.append(guess)
@@ -61,7 +61,7 @@ while in_game==True:
             return avail_letters,no_of_wrong,guessed_list
         return avail_letters,no_of_wrong,guessed_list
 
-    def PrintHangman(no_of_wrong):
+    def print_hangman(no_of_wrong):
         no_right=6-no_of_wrong
         print"Guesses Left:",no_right,
         print"     ",
@@ -69,7 +69,7 @@ while in_game==True:
         print' [X] '* no_of_wrong,
         print' [ ] '* no_right,
 
-    wordplace=SetWordplace(word)
+    wordplace=set_word_place(word)
     ver=platform.system()
     if ver=='Windows':
         os.system("cls")
@@ -79,8 +79,8 @@ while in_game==True:
     print"--------------------------------------------------------------------------------------"
 
     while no_of_wrong < 6:
-        avail_letters,no_of_wrong,guessed_list=AskGuess(no_of_wrong,avail_letters,word,guessed_list,correct_guess,wordplace)
-        PrintHangman(no_of_wrong)
+        avail_letters,no_of_wrong,guessed_list=ask_guess(no_of_wrong,avail_letters,word,guessed_list,correct_guess,wordplace)
+        print_hangman(no_of_wrong)
 
     if no_of_wrong >= 6:
         print"\n\n"
