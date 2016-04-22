@@ -92,5 +92,3 @@ while IN_GAME==True:
             sys.exit()
         if play_again == 'Y':
             IN_GAME=True
-            
-    
