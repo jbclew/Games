@@ -81,13 +81,13 @@ class Player:
             level = 5
         if self.xp > 2999 and self.xp < 5000:
             level = 6
-        if self.xp > 4999 and self.xp < 10000:
+        if self.xp > 4999 and self.xp < 8000:
             level = 7
-        if self.xp > 9999 and self.xp < 15000:
+        if self.xp > 7999 and self.xp < 12000:
             level = 8
-        if self.xp > 14999 and self.xp < 20000:
+        if self.xp > 11999 and self.xp < 15000:
             level = 9
-        if self.xp > 19999:
+        if self.xp > 14999:
             level = 10
         if level > levelbefore:
             print"-----------------------------------------------------------------------------------------------------------------------------------"
@@ -194,6 +194,22 @@ class Room:
         self.trapname=setroomtrap
         return setroomtrap
 
+class SecretFlags(self)
+    def __init__(self):
+        self.flag1 = False
+        self.flag2 = False
+        self.flag3 = False
+        self.allflags = False
+    def clear_flag1(self):
+        self.flag1 = True
+    def clear_flag2(self):
+        self.flag2 = True
+    def clear_flag3(self):
+        self.flag3 = True
+    def all_cleared(self):
+        if self.flag1 == True and self.flag2 == True and self.flag3 == True:
+            self.allflags = True
+
 class Trap:
     def __init__(self, describetrap, traplodam, traphighdam):
         self.describe = describetrap
@@ -217,55 +233,55 @@ class Armor:
         self.minlevel=minlevel
 
 #weapons
-shortsword=Weapon('Short Sword',1,2,4)
-longsword=Weapon('Long Sword',1,4,6)
-dagger=Weapon('Dagger',1,1,3)
-spear=Weapon('Spear',1,3,5)
-trident=Weapon('Trident',2,4,8)
-staff=Weapon('Staff',2,5,9)
-sabre=Weapon('Sabre',2,5,10)
-flamedagger=Weapon('Flaming Dagger',3,6,8)
-icesword=Weapon('Ice Sword',3,6,11)
-twohandedsword=Weapon('Two Handed Sword',4,8,12)
-flamedragonstaff=Weapon('Flaming Dragon Staff',4,9,12)
-inigosabre=Weapon("Inigos' Sabre",5,10,14)
-orbofimpunity=Weapon('Orb of Impunity',5,12,15)
-staffofbadass=Weapon('Staff of Bad Assness',6,15,20)
-wtf=Weapon('WTF is this?',7,20,25)
+shortsword = Weapon('Short Sword',1,2,4)
+longsword = Weapon('Long Sword',1,4,6)
+dagger = Weapon('Dagger',1,1,3)
+spear = Weapon('Spear',1,3,5)
+trident = Weapon('Trident',2,4,8)
+staff = Weapon('Staff',2,5,9)
+sabre = Weapon('Sabre',2,5,10)
+flamedagger = Weapon('Flaming Dagger',3,6,8)
+icesword = Weapon('Ice Sword',3,6,11)
+twohandedsword = Weapon('Two Handed Sword',4,8,12)
+flamedragonstaff = Weapon('Flaming Dragon Staff',4,9,12)
+inigosabre = Weapon("Inigos' Sabre",5,10,14)
+orbofimpunity = Weapon('Orb of Impunity',5,12,15)
+staffofbadass = Weapon('Staff of Bad Assness',6,15,20)
+wtf = Weapon('WTF is this?',7,20,25)
 
 #armor
-linens=Armor('Linens',1,1)
-leather=Armor('Leather',2,1)
-robe=Armor('Robe',2,1)
-chain=Armor('Chain',4,2)
-mail=Armor('Mail',5,2)
-paddedmail=Armor('Padded Mail',6,2)
-blackgreenrobe=Armor('Black or Green Robe',5,2)
-hornedhelm=Armor('Horned Helmet',7,3)
-plate=Armor('Plate Mail',8,3)
-etherium=Armor('Etherium Armor',10,4)
-mailofforce=Armor('Mail of Force',12,4)
-fezzikleggings=Armor('Fezzik Leggings',14,5)
-tomeofdefense=Armor('Tome of Defense',15,5)
-teelabrowncharm=Armor("Teela Browns' Lucky Charm",18,6)
-opfield=Armor('OP Forcefield',22,7)
+linens = Armor('Linens',1,1)
+leather = Armor('Leather',2,1)
+robe = Armor('Robe',2,1)
+chain = Armor('Chain',4,2)
+mail = Armor('Mail',5,2)
+paddedmail = Armor('Padded Mail',6,2)
+blackgreenrobe = Armor('Black or Green Robe',5,2)
+hornedhelm = Armor('Horned Helmet',7,3)
+plate = Armor('Plate Mail',8,3)
+etherium = Armor('Etherium Armor',10,4)
+mailofforce = Armor('Mail of Force',12,4)
+fezzikleggings = Armor('Fezzik Leggings',14,5)
+tomeofdefense = Armor('Tome of Defense',15,5)
+teelabrowncharm = Armor("Teela Browns' Lucky Charm",18,6)
+opfield = Armor('OP Forcefield',22,7)
 
 #monsters name,ac,hp,lowdam,highdam,level,xp
-kobold=Monster('Kobold',1,3,1,5,1,75)
-troll=Monster('Troll',2,4,2,5,1,125)
-ooze=Monster('Ooze',4,6,1,5,2,125)
-orc=Monster('Orc',3,6,3,6,3,165)
-mous=Monster('M.O.U.S',4,7,2,4,3,175)
-siciliangnome=Monster('Sicilian Gnome',6,8,4,8,4,220)
-giant=Monster('Giant',2,8,5,9,5,275)
-humdinkguard=Monster('Humdink Guard',4,9,5,10,5,300)
-goblin=Monster('Goblin',3,10,5,10,6,350)
-pirate=Monster('Pirate Goon',5,11,6,12,6,330)
-skeleton=Monster('Animated Skeleton',6,12,6,14,7,500)
-harpy=Monster('Harpy',4,15,8,16,7,550)
-goblindealer=Monster('Goblin Salesman',6,20,10,18,8,700)
-tiger=Monster('Morphed Tiger',10,22,12,20,8,800)
-piraterobert=Monster('Pirate Robert Dread',12,35,15,20,9,1000)
+kobold = Monster('Kobold',1,3,1,5,1,75)
+troll = Monster('Troll',2,4,2,5,1,125)
+ooze = Monster('Ooze',4,6,1,5,2,125)
+orc = Monster('Orc',3,6,3,6,3,165)
+mous = Monster('M.O.U.S',4,7,2,4,3,175)
+siciliangnome = Monster('Sicilian Gnome',6,8,4,8,4,220)
+giant = Monster('Giant',2,8,5,9,5,275)
+humdinkguard = Monster('Humdink Guard',4,9,5,10,5,300)
+goblin = Monster('Goblin',3,10,5,10,6,350)
+pirate = Monster('Pirate Goon',5,11,6,12,6,330)
+skeleton = Monster('Animated Skeleton',6,12,6,14,7,500)
+harpy = Monster('Harpy',4,15,8,16,7,550)
+goblindealer = Monster('Goblin Salesman',6,20,10,18,8,700)
+tiger = Monster('Morphed Tiger',10,22,12,20,8,800)
+piraterobert = Monster('Pirate Robert Dread',12,35,15,20,9,1000)
 
 #traps
 arrowtrap = Trap("Arrows shoot out of the wall at you!",1,4)
@@ -289,7 +305,7 @@ room8wrap = textwrap.fill("The strong, sour-sweet scent of vinegar assaults your
 room9wrap = textwrap.fill("You inhale a briny smell like the sea as you crack open the door to this chamber. Within you spy the source of the scent: a dark and still pool of brackish water within a low circular wall. Above it stands a strange statue of a lobster-headed and clawed woman. The statue is nearly 15 feet tall ", width=txtwidth)
 room10wrap = textwrap.fill("This small room contains several pieces of well-polished wood furniture. Eight ornate, high-backed chairs surround a long oval table, and a side table stands next to the far exit. All bear delicate carvings of various shapes. One bears carvings of skulls and bones, another is carved with shields and magic circles, and a third is carved with shapes like flames and lightning strokes. ", width=txtwidth)
 room11wrap = textwrap.fill("You peer into this room and spot the white orb of a skull lying on the floor. Suddenly a stone falls from the ceiling and smashes the skull to pieces. An instant later, another stone from the ceiling drops to strike the floor and shatter. You hear a low rumbling and cracking noise", width=txtwidth)
-room12wrap = textwrap.fill("You pull open the door and hear the scrape of its opening echo throughout what must be a massive room. Peering inside, you see a vast cavern. Stalactites drip down from the ceiling in sharp points while flowstone makes strange shapes on the floor.", width=txtwidth)
+room12wrap = textwrap.fill("This room is well lit by torches. In the back of the room there is a throne, next to the throne is a chest. The door from the north appears to be the only entrance and exit. ", width=txtwidth)
 
 hallway = Room(10,30,False,False,0,1,'none','room1','none','none',hallwrap)
 room1 = Room(30,35,False,False,1,1,'hallway','room3','none','room2',room1wrap)
@@ -508,11 +524,11 @@ def player_to_hit(Player,Monster):
     if hit > 19:
         print("An Ultra Crit!")
         dammod = 2.0
-    return (dammod)
+    return dammod
 
 def monster_to_hit(Player,Monster):
     base = Monster.level / (Player.level * (0.5 * Player.ac) * (0.25 * Player.dexterity))
-    rolled=roll()
+    rolled = roll()
     hit = int(round(base*rolled))
     print"\n"
     if hit <= 1:
@@ -533,7 +549,7 @@ def monster_to_hit(Player,Monster):
     if hit > 19:
         print("An Ultra Crit!")
         dammod = 2.0
-    return (dammod)
+    return dammod
 
 def Battle(Player,Monster,weaponlist,armorlist):
     print"You are fighting a %s." %Monster.name
@@ -650,6 +666,8 @@ def try_disarm_trap(Player,Room):
 
 def secret_room(Player, Room):
     if Room == room7:
+        if room7.cleared == True:
+            return
         goblin_choice = raw_input("(T)alk to Goblin, (A)ttack Goblin, (I)gnore Goblin: ")
         while goblin_choice !='I' and goblin_choice != 'i' and goblin_choice != 'T' and goblin_choice !='t' and goblin_choice !='A' and goblin_choice != 'a':
             print"Not a valid choice!"
@@ -673,9 +691,94 @@ def secret_room(Player, Room):
             Room.clear()
             return
     if Room == room12:
-        print"404  Throne room content in progress....."
+        inroom12 = True
+        room12flags = SecretFlags()
+        while inroom12 == True:
+            if room12flags.flag1 == False and room12flags.flag2 == False:
+                throne_choice = raw_input("What do you want to do? (O)pen chest, (S)it in throne, (L)eave room: ")
+                while throne_choice != 'O' and throne_choice != 'o' and throne_choice != 'S' and throne_choice != 's' and throne_choice != 'L' and throne_choice != 'l':
+                    print"I'm not sure where you are going with that but there's nothing I can do about it."
+                    throne_choice = raw_input("What do you want to do? (O)pen chest, (S)it in throne, (L)eave room: ")
+                if throne_choice == 'O' or throne_choice == 'o':
+                    trap_roll = roll() + Player.dexterity
+                    if trap_roll > 15:
+                        print"You dodge the flame that shoots out of the chest"
+                        goldsack = random.randint(300, 1200)
+                        print"Inside the chest is a sack.  As you pick up the sack it is very light."
+                        print"Inside you can see what appears to be hundreds of gold coins"
+                        print"You receive %d gold" % goldsack
+                        Player.gold = Player.gold + goldsack
+                        room12flags.clear_flag1()
+                    if trap_roll < 15:
+                        trap_dam = random.randint(10,30)
+                        Player.currenthp = Player.currenthp - trap_dam
+                        if Player.currenthp < 0:
+                            print"A fire trap bellows out at you hitting you for %d damage!"% trap_dam
+                            print"You have been flame broiled.  Nearby creatures come by and eat your charred body."
+                            print"Game over."
+                            sys.exit()
+                        if Player.currenthp > 1:
+                            print"A fire trap bellows out at you hitting you for %d damage!" % trap_dam
+                            goldsack = random.randint(300, 1200)
+                            print"Inside the chest is a sack.  As you pick up the sack it is very light."
+                            print"Inside you can see what appears to be hundreds of gold coins"
+                            print"You receive %d gold" % goldsack
+                            Player.gold = Player.gold + goldsack
+                            room12flags.clear_flag1()
+                if throne_choice == 'S' or throne_choice == 's':
+                    see_button = roll()
+                    if see_button > 12:
+                        print"You see a button on the right hand of the throne arm. "
+                        press_button = raw_input("(P)ress button, (L)eave button alone: ")
+                        while press_button != 'P' or press_button !='p' or press_button != 'L' and press_button != 'l':
+                            print"IT's not a tough question, I know you can do better"
+                            press_button = raw_input("(P)ress button, (L)eave button alone: ")
+                        if press_button == 'P' or press_button == 'p':
+                            print"You press the button on the throne.  The ground beneath you shakes.  Behind the throne a trap door in the floor opens up and stairs lead down"
+                            room12flags.flag2 = True
+                        if press_button == 'L' or press_button == 'l':
+                            print"You think better of pressing strange buttons and get up off the throne."
+                        if see_button < 13:
+                        print"Nothing happens"
+                if throne_choice == 'L' or throne_choice == 'l':
+                    inroom12 = False
+            if room12flags.flag1 == True and room12flags.flag2 == False:
+                throne_choice = raw_input("What do you want to do? (S)it in throne, (L)eave room: ")
+                while throne_choice != 'S' and throne_choice != 's' and throne_choice != 'L' and throne_choice != 'l':
+                    print"I'm not sure where you are going with that but there's nothing I can do about it."
+                    throne_choice = raw_input("What do you want to do? (S)it in throne, (L)eave room: ")
+                if throne_choice == 'S' or throne_choice == 's':
+                    see_button = roll()
+                    if see_button > 12:
+                        print"You see a button on the right hand of the throne arm. "
+                        press_button = raw_input("(P)ress button, (L)eave button alone: ")
+                        while press_button != 'P' or press_button != 'p' or press_button != 'L' and press_button != 'l':
+                            print"IT's not a tough question, I know you can do better"
+                            press_button = raw_input("(P)ress button, (L)eave button alone: ")
+                        if press_button == 'P' or press_button == 'p':
+                            print"You press the button on the throne.  The ground beneath you shakes.  Behind the throne a trap door in the floor opens up and stairs lead down"
+                            room12flags.flag2 = True
+                        if press_button == 'L' or press_button == 'l':
+                            print"You think better of pressing strange buttons and get up off the throne."
+                        if see_button < 13:
+                            print"Nothing happens"
+                if throne_choice == 'L' or throne_choice == 'l':
+                    inroom12 = False
+            if room12flags.flag1 == True and room12flags.flag2 == True:
+                room12flags.flag3 = True
+                room12flags.all_cleared()
+                if room12flags.allflags == True:
+                    room12.clear()
+                throne_choice = raw_input("What do you want to do? (S)tairs, (L)eave room: ")
+                while throne_choice != 'S' and throne_choice != 's' and throne_choice != 'L' and throne_choice != 'l':
+                    print"I'm not sure where you are going with that but there's nothing I can do about it."
+                    throne_choice = raw_input("What do you want to do? (S)it in throne, (L)eave room: ")
+                if throne_choice == 'S' or throne_choice == 's':
+                    print"Not yet implemented"
+                if throne_choice == 'L' or throne_choice == 'l':
+                    inroom12 = False
+
         return
-    return
 
 def enter_room(Player,Room,traplist,monsterlist):
     PrintDashboard(Player)
