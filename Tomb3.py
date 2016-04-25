@@ -56,7 +56,7 @@ class Player:
     def take_damage(self,damage):
         self.currenthp=self.currenthp-damage
     def deal_damage(self,lowdam,highdam,dammod):
-        dam_done=(random.randint(lowdam,highdam)*dammod)+(0.5*self.strength)
+        dam_done=(random.randint(lowdam,highdam)*dammod)+(0.5*self.strength)*dammod
         if dammod >= 0:
             print"You did %d damage!"%dam_done
             if dammod > 0 and dam_done < 1:
@@ -161,6 +161,22 @@ class Room:
             print"(D)isarm Trap"
         print"\n"
         direction = raw_input("What do you want to do: ")
+        while direction != 'N' and direction != 'n' and direction != 'S' and direction != 's' and direction != 'E' and direction != 'e' and direction != 'W' and direction != 'w' and direction != 'D' and direction != 'd':
+            print"Not a valid choice:"
+            roomchosen = ""
+            print "There are exits to the ",
+            if self.northroom != 'none':
+                print"(N)orth ",
+            if self.southroom != "none":
+                print"(S)outh ",
+            if self.eastroom != "none":
+                print"(E)ast ",
+            if self.westroom != "none":
+                print"(W)est ",
+            if self.havetrap == True and self.disarmed == False:
+                print"(D)isarm Trap"
+            print"\n"
+            direction = raw_input("What do you want to do: ")
         if direction == 'N' or direction == 'n':
             roomchosen = self.northroom
         if direction == 'S' or direction == 's':
@@ -207,15 +223,15 @@ dagger=Weapon('Dagger',1,1,3)
 spear=Weapon('Spear',1,3,5)
 trident=Weapon('Trident',2,4,8)
 staff=Weapon('Staff',2,5,9)
-sabre=Weapon('Sabre',3,5,10)
-flamedagger=Weapon('Flaming Dagger',4,6,8)
-icesword=Weapon('Ice Sword',4,6,11)
-twohandedsword=Weapon('Two Handed Sword',5,8,12)
-flamedragonstaff=Weapon('Flaming Dragon Staff',5,9,12)
-inigosabre=Weapon("Inigos' Sabre",6,10,14)
-orbofimpunity=Weapon('Orb of Impunity',6,12,15)
-staffofbadass=Weapon('Staff of Bad Assness',7,15,20)
-wtf=Weapon('WTF is this?',8,20,25)
+sabre=Weapon('Sabre',2,5,10)
+flamedagger=Weapon('Flaming Dagger',3,6,8)
+icesword=Weapon('Ice Sword',3,6,11)
+twohandedsword=Weapon('Two Handed Sword',4,8,12)
+flamedragonstaff=Weapon('Flaming Dragon Staff',4,9,12)
+inigosabre=Weapon("Inigos' Sabre",5,10,14)
+orbofimpunity=Weapon('Orb of Impunity',5,12,15)
+staffofbadass=Weapon('Staff of Bad Assness',6,15,20)
+wtf=Weapon('WTF is this?',7,20,25)
 
 #armor
 linens=Armor('Linens',1,1)
@@ -223,40 +239,40 @@ leather=Armor('Leather',2,1)
 robe=Armor('Robe',2,1)
 chain=Armor('Chain',4,2)
 mail=Armor('Mail',5,2)
-paddedmail=Armor('Padded Mail',6,3)
-blackgreenrobe=Armor('Black or Green Robe',5,3)
-hornedhelm=Armor('Horned Helmet',7,4)
-plate=Armor('Plate Mail',8,4)
-etherium=Armor('Etherium Armor',10,5)
-mailofforce=Armor('Mail of Force',12,5)
-fezzikleggings=Armor('Fezzik Leggings',14,6)
-tomeofdefense=Armor('Tome of Defense',15,6)
-teelabrowncharm=Armor("Teela Browns' Lucky Charm",18,7)
-opfield=Armor('OP Forcefield',22,8)
+paddedmail=Armor('Padded Mail',6,2)
+blackgreenrobe=Armor('Black or Green Robe',5,2)
+hornedhelm=Armor('Horned Helmet',7,3)
+plate=Armor('Plate Mail',8,3)
+etherium=Armor('Etherium Armor',10,4)
+mailofforce=Armor('Mail of Force',12,4)
+fezzikleggings=Armor('Fezzik Leggings',14,5)
+tomeofdefense=Armor('Tome of Defense',15,5)
+teelabrowncharm=Armor("Teela Browns' Lucky Charm",18,6)
+opfield=Armor('OP Forcefield',22,7)
 
 #monsters name,ac,hp,lowdam,highdam,level,xp
-kobold=Monster('Kobold',1,2,1,3,1,50)
-troll=Monster('Troll',2,3,2,3,1,100)
-ooze=Monster('Ooze',4,2,1,4,2,110)
-orc=Monster('Orc',3,4,2,5,3,155)
-mous=Monster('M.O.U.S',4,3,2,4,3,145)
-siciliangnome=Monster('Sicilian Gnome',6,3,1,5,4,200)
-giant=Monster('Giant',2,8,4,6,5,275)
-humdinkguard=Monster('Humdink Guard',4,6,2,6,5,250)
-goblin=Monster('Goblin',3,8,4,7,6,300)
-pirate=Monster('Pirate Goon',5,8,5,8,6,310)
-skeleton=Monster('Animated Skeleton',6,6,6,9,7,400)
-harpy=Monster('Harpy',4,8,4,10,7,450)
-goblindealer=Monster('Goblin Salesman',6,12,6,12,8,590)
-tiger=Monster('Morphed Tiger',10,10,6,12,8,670)
-piraterobert=Monster('Pirate Robert Dread',14,25,10,15,10,1000)
+kobold=Monster('Kobold',1,3,1,5,1,75)
+troll=Monster('Troll',2,4,2,5,1,125)
+ooze=Monster('Ooze',4,6,1,5,2,125)
+orc=Monster('Orc',3,6,3,6,3,165)
+mous=Monster('M.O.U.S',4,7,2,4,3,175)
+siciliangnome=Monster('Sicilian Gnome',6,8,4,8,4,220)
+giant=Monster('Giant',2,8,5,9,5,275)
+humdinkguard=Monster('Humdink Guard',4,9,5,10,5,300)
+goblin=Monster('Goblin',3,10,5,10,6,350)
+pirate=Monster('Pirate Goon',5,11,6,12,6,330)
+skeleton=Monster('Animated Skeleton',6,12,6,14,7,500)
+harpy=Monster('Harpy',4,15,8,16,7,550)
+goblindealer=Monster('Goblin Salesman',6,20,10,18,8,700)
+tiger=Monster('Morphed Tiger',10,22,12,20,8,800)
+piraterobert=Monster('Pirate Robert Dread',12,35,15,20,9,1000)
 
 #traps
-arrowtrap = Trap("Arrows shoot out of the wall at you!",1,3)
+arrowtrap = Trap("Arrows shoot out of the wall at you!",1,4)
 firetrap = Trap("Flames shoot from the wall towards you!",2,4)
-acidtrap = Trap("Acid sprays from above!",1,3)
+acidtrap = Trap("Acid sprays from above!",1,4)
 spiketrap = Trap("Spikes shoot up from the ground",2,4)
-sonictrap = Trap("Sonic blast surrounds you",2,3)
+sonictrap = Trap("Sonic blast surrounds you",2,4)
 
 #rooms width,length,havetrap,secret,noofmonsters,maxmonsterlevel,northroom,southroom,eastroom,westroom,description
 
@@ -268,7 +284,7 @@ room3wrap = textwrap.fill("You open the door to a scene of carnage. Two male hum
 room4wrap = textwrap.fill("The manacles set into the walls of this room give you the distinct impression that it was used as a prison and torture chamber, although you can see no evidence of torture devices. One particularly large set of manacles -- big enough for an ogre -- have been broken open.", width=txtwidth)
 room5wrap = textwrap.fill("This hall is choked with corpses. The bodies of orcs and ogres lie in tangled heaps where they died, and the floor is sticky with dried blood. It looks like the orcs and ogres were fighting. Some side was the victor but you're not sure which one. The bodies are largely stripped of valuables, but a few broken weapons jut from the slain or lie discarded on the floor.", width=txtwidth)
 room6wrap = textwrap.fill("The door to this room swings open easily on well-oiled hinges. Beyond it you see that the chamber walls have been disguised by wood paneling, and the stone ceiling and floor are hidden by bright marble tiles. Several large and well-stuffed chairs are arranged about the room along with some small reading tables.", width=txtwidth)
-room7wrap = textwrap.fill("Looking into this room, you note four pits in the floor. A wide square is nearest you, a triangular pit beyond it, and a little farther than both lie two circular pits. The room is rectangular nearest you but it widens into a larger rounded chamber starting just beyond the rectangular pit. You note that many flagstones, ceiling tiles, and wall blocks are carved with a skull emblem of some kind, whose dark openings emulate the layout of the pits", width=txtwidth)
+room7wrap = textwrap.fill("Looking into this room, you note four pits in the floor. A wide square is nearest you, a triangular pit beyond it, and a little farther than both lie two circular pits. There is a goblin standing in the corner who does not appear hostile.", width=txtwidth)
 room8wrap = textwrap.fill("The strong, sour-sweet scent of vinegar assaults your nose as you enter this room. Sundered casks and broken bottle glass line the walls of this room. Clearly this was someone's wine cellar for a time. The shards of glass are somewhat dusty, and the spilled wine is nothing more than a sticky residue in some places.", width=100)
 room9wrap = textwrap.fill("You inhale a briny smell like the sea as you crack open the door to this chamber. Within you spy the source of the scent: a dark and still pool of brackish water within a low circular wall. Above it stands a strange statue of a lobster-headed and clawed woman. The statue is nearly 15 feet tall ", width=txtwidth)
 room10wrap = textwrap.fill("This small room contains several pieces of well-polished wood furniture. Eight ornate, high-backed chairs surround a long oval table, and a side table stands next to the far exit. All bear delicate carvings of various shapes. One bears carvings of skulls and bones, another is carved with shields and magic circles, and a third is carved with shapes like flames and lightning strokes. ", width=txtwidth)
@@ -282,12 +298,12 @@ room3 = Room(15,30,True,False,0,1,'none','room4','room1','room2',room3wrap)
 room4 = Room(55,30,False,False,1,2,'room3','none','room5','none',room4wrap)
 room5 = Room(25,10,True,False,1,2,'room6','room4','none','none',room5wrap)
 room6 = Room(30,40,False,False,2,3,'room7','none','room8','room5',room6wrap)
-room7 = Room(40,20,False,False,1,4,'room9','room6','none','none',room7wrap)
+room7 = Room(40,20,False,True,0,4,'room9','room6','none','none',room7wrap)
 room8 = Room(20,10,True,False,1,4,'room9','room6','none','none',room8wrap)
 room9 = Room(35,30,False,False,2,5,'none','room8','room10','room7',room9wrap)
 room10 = Room(35,55,False,False,1,6,'none','room11','none','room9',room10wrap)
 room11 = Room(20,15,True,False,1,7,'room10','room12','none','none',room11wrap)
-room12 = Room(65,40,False,False,2,7,'room11','none','none','none',room12wrap)
+room12 = Room(65,40,False,True,2,7,'room11','none','none','none',room12wrap)
 
 weaponlist = [shortsword,longsword,dagger,spear,trident,staff,sabre,flamedagger,icesword,twohandedsword,flamedagger,inigosabre,orbofimpunity,staffofbadass,wtf]
 armorlist = [linens,leather,robe,chain,mail,paddedmail,blackgreenrobe,hornedhelm,plate,etherium,mailofforce,fezzikleggings,tomeofdefense,teelabrowncharm,opfield]
@@ -300,14 +316,14 @@ def initial_start():
     print"-----------------------------------------------------------------------------------------------------------------------------------"
     print"              Explanation of Stats:"
     print"-----------------------------------------------------------------------------------------------------------------------------------"
-    print"              hp (Hit Points): Amount of health you have when this reaches 0 you die."
+    print"              hp (Hit Points): Amount of health you have. When this reaches 0, game over."
     print"              ac (Armor Class): This will reduce the amount of damage you take."
-    print"              Strength: This attribute will add to the amount of damage you do"
-    print"              Dexterity: This attribute will help reduce your chance to get hit"
-    print"              Constitution: This attribute will increase the amount of hp you get when you level"
+    print"              Strength: This attribute will add to the amount of damage you do."
+    print"              Dexterity: This attribute will help reduce your chance to get hit by enemies and traps."
+    print"              Constitution: This attribute will increase the amount of hp you get when you level."
     print"              Damage: The range of damage you deal.  ex (1-4)"
     print"              Directions: choose options by entering the letter in parenthesis.  ex. (N)orth : N"
-    print"              If you pick up a weapon or armor the previous weapon or armor will be permanently destroyed!"
+    print"              If you pick up a weapon or armor, the previous weapon or armor will be permanently destroyed!"
     print"-----------------------------------------------------------------------------------------------------------------------------------"
     skill_points = 8
     strength = 1
@@ -403,6 +419,71 @@ def roll():
             print "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b",
         i = i + 1
     return rolled
+
+def goblin_buying(Player):
+    print"I got all the weapons and armors you want!"
+    print"WARNING: Purchasing an item will equip it and destroy existing item"
+    vendorweapon = [['Rusted Sword', 1, 2, 10], ['Shiny Dagger', 3, 5, 100], ['Andres Fist', 4, 8, 200],
+                    ['Balba Sword', 5, 10, 300], ['Magic Sword', 12, 20, 650]]
+    vendorarmor = [['Diced Leather', 1, 10], ['Chain Mail', 4, 100], ['Polished Plate', 10, 400],
+                   ['Magic Armor', 20, 800]]
+    inbuying = True
+    while inbuying == True:
+        buymenu = raw_input("(W)eapons, (A)rmor, (E)xit: ")
+        while buymenu != 'W' and buymenu != 'w' and buymenu != 'A' and buymenu != 'a' and buymenu !='E' and buymenu != 'e':
+            print"My common is pretty good but I can't figure out what you are trying to say."
+            buymenu = raw_input("(W)eapons, (A)rmor, (E)xit: ")
+        if buymenu == 'W' or buymenu == 'w':
+            inweapon = True
+            while inweapon == True:
+                x = len(vendorweapon)
+                for y in range(0, x):
+                    print "(%d) Item: %s   Damage: %d-%d   Cost: %d gold" % ((y + 1), vendorweapon[y][0], vendorweapon[y][1], vendorweapon[y][2], vendorweapon[y][3])
+                choice = raw_input("Gold:%d           Choose 1-%d: or 0 to go back: " % (Player.gold, x))
+                choice = int(choice) - 1
+                if choice < 0:
+                    inweapon = False
+                weapon = vendorweapon[choice]
+                if vendorweapon[choice][3] > Player.gold and choice > -1:
+                    print"You do not have enough gold to purchase this weapon"
+                    inweapon = False
+                if vendorweapon[choice][3] <= Player.gold and choice > -1:
+                    Player.gold = Player.gold - vendorweapon[choice][3]
+                    Player.weaponname = weapon[0]
+                    Player.lowdam = weapon[1]
+                    Player.highdam = weapon[2]
+                    vendorweapon.remove(weapon)
+                    print"\nYou purchased %s   damage:%d-%d" % (weapon[0], weapon[1], weapon[2])
+                    print"\n"
+                if len(vendorweapon) < 1:
+                    print"you bought everything"
+                    inweapon = False
+        if buymenu == 'A' or buymenu == 'a':
+            inarmor = True
+            while inarmor == True:
+                x = len(vendorarmor)
+                for y in range(0, x):
+                    print "(%d) Item: %s   Armor: %d   Cost: %d gold" % ((y + 1), vendorarmor[y][0], vendorarmor[y][1], vendorarmor[y][2])
+                choice = raw_input("Gold:%d           Choose 1-%d: or 0 to go back: " % (Player.gold, x))
+                choice = int(choice) - 1
+                if choice < 0:
+                    inarmor = False
+                armor = vendorarmor[choice]
+                if vendorarmor[choice][2] > Player.gold and choice > -1:
+                    print"You do not have enough gold to purchase this weapon"
+                    inarmor = False
+                if vendorarmor[choice][2] <= Player.gold and choice > -1:
+                    Player.gold = Player.gold - vendorarmor[choice][2]
+                    Player.armorname = armor[0]
+                    Player.ac = armor[1]
+                    vendorarmor.remove(armor)
+                    print"You purchased %s   AC:%d" % (armor[0], armor[1])
+                if len(vendorarmor) < 1:
+                    print"you bought everything"
+                    inarmor = False
+        if buymenu == 'E' or buymenu == 'e':
+            inbuying = False
+    return
 
 def player_to_hit(Player,Monster):
     base = Player.level/(Monster.level*(0.25*Monster.ac))
@@ -538,7 +619,7 @@ def leave_or_pick(Player,weapon_choice,armor_choice,rollweapon,rollarmor):
 def loot(weaponlist,armorlist,Player):
     rollweapon = random.randint(1,20)
     rollarmor = random.randint(1,20)
-    rollgold = random.randint(5,15)*Player.level
+    rollgold = random.randint(15,40)*Player.level
     Player.gold = Player.gold + rollgold
     print"-----------------------------------------------------------------------------------------------------------------------------------"
     print"Enemy had %d gold!"%rollgold
@@ -551,20 +632,49 @@ def try_disarm_trap(Player,Room):
     print "You attempt to disarm the trap"
     rolled=roll()
     print"\n"
-    if rolled < 4:
-        disarm_dam=random.randint(1,3)
+    if rolled < 5:
+        disarm_dam = random.randint(1,3)
         print "Disarming the trap backfires for %d damage!"%disarm_dam
         Player.currenthp = Player.currenthp - disarm_dam
         if Player.currenthp < 1:
             print"You have died trying to disarm a trap.  Game over"
             sys.exit()
-    if rolled > 3 and rolled < 17:
+    if rolled > 4 and rolled < 16:
         print "You were unable to disarm the trap"
-    if rolled > 16:
-        print "You successfully disarmed the trap! You gain 50xp"
+    if rolled > 15:
+        print "You successfully disarmed the trap! You gain 75xp"
         Room.disarmed = True
         Room.clear()
-        Player.check_level(50)
+        Player.check_level(75)
+    return
+
+def secret_room(Player, Room):
+    if Room == room7:
+        goblin_choice = raw_input("(T)alk to Goblin, (A)ttack Goblin, (I)gnore Goblin: ")
+        while goblin_choice !='I' and goblin_choice != 'i' and goblin_choice != 'T' and goblin_choice !='t' and goblin_choice !='A' and goblin_choice != 'a':
+            print"Not a valid choice!"
+            goblin_choice = raw_input("(T)alk to Goblin, (A)ttack Goblin, (I)gnore Goblin: ")
+        if goblin_choice == 'I' or goblin_choice == 'i':
+            print"As you make your way around the pits toward the exit, the goblin speaks to you"
+            print"No matter, i'll be gathering your belongings once you are butchered!"
+            return
+        if goblin_choice == 'T' or goblin_choice == 't':
+            print"As you make your way around the pits towards the goblin, he speaks to you in your tongue."
+            buying_yes_no=raw_input("I have all kinds of weapons and armor for sale. Buy? (Y)es or (N)o: ")
+            while buying_yes_no != 'Y' and buying_yes_no != 'y' and buying_yes_no != 'N' and buying_yes_no != 'n':
+                print"You are aren't making any sense. ",
+                buying_yes_no = raw_input("Would you like to buy? (Y)es or (N)o: ")
+            if buying_yes_no == 'Y' or buying_yes_no == 'y':
+                goblin_buying(Player)
+            if buying_yes_no == 'N' or buying_yes_no == 'n':
+                return
+        if goblin_choice == 'A' or goblin_choice == 'a':
+            Battle(Player, goblindealer, weaponlist, armorlist)
+            Room.clear()
+            return
+    if Room == room12:
+        print"404  Throne room content in progress....."
+        return
     return
 
 def enter_room(Player,Room,traplist,monsterlist):
@@ -586,7 +696,7 @@ def enter_room(Player,Room,traplist,monsterlist):
             Room.clear()
         if stay_or_go == 'R' or stay_or_go == 'r':
             print"You try to run away!"
-            run_roll=roll()
+            run_roll = roll()
             if run_roll > 5:
                 print"\n"
                 print"You were able to evade the enemy!"
@@ -632,17 +742,19 @@ def enter_room(Player,Room,traplist,monsterlist):
                 sys.exit()
         if savings > 15:
             print"You successfully dodge the trap!"
+    if Room.secret == True:
+        secret_room(Player, Room)
     choice = Room.choose_direction()
     while choice == 'D':
         try_disarm_trap(Player,Room)
         choice = Room.choose_direction()
     return choice
 
-playerone=initial_start()
+playerone = initial_start()
 nextrm = enter_room(playerone, hallway, traplist, monsterlist)
 hallway.clear()
 while hallway.cleared == False or room1.cleared == False or room2.cleared == False or room3.cleared == False or room4.cleared == False or room5.cleared == False or room6.cleared == False or room7.cleared == False or room8.cleared == False or room9.cleared == False or room10 == False or room11 == False or room12 == False:
-    next_room=eval(nextrm)
+    next_room = eval(nextrm)
     nextrm = enter_room(playerone,next_room,traplist,monsterlist)
 print"A figure appears from smoke in the middle of the room"
 print"He says I am the Pirate Robert Dread.  You have defiled my tomb and looted my wares.  Prepare to meet your doom."
@@ -651,3 +763,4 @@ Battle(playerone,piraterobert,weaponlist,armorlist)
 print"You have defeated the mighty Pirate Robert Dread.  You have looted his tomb and cleared it of monsters."
 print"Today is a glorious day! You head back to town to start your new life"
 print"The End"
+PrintDashboard(playerone)
