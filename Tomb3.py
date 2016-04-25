@@ -103,7 +103,7 @@ class Player:
             while skill_points > 0:
                 addpoints = raw_input("(S)trength, (D)exterity, or (C)onstitution: ")
                 if addpoints == 'S' or addpoints == 's':
-                    self.strength=self.strength + 1
+                    self.strength = self.strength + 1
                     skill_points = skill_points - 1
                     print"1 Point added to strength.  Strength is now: %d"%self.strength
                 if addpoints == 'D' or addpoints == 'd':
@@ -417,8 +417,8 @@ def select_monster(monsterlist,Player):
             levellist.append(item)
         if item.level > (Player.level)+1:
             pass
-    monster_choice=random.choice(levellist)
-    monster_choice.currenthp=monster_choice.hp
+    monster_choice = random.choice(levellist)
+    monster_choice.currenthp = monster_choice.hp
     return monster_choice
 
 def roll():
@@ -486,7 +486,7 @@ def goblin_buying(Player):
                     inarmor = False
                 armor = vendorarmor[choice]
                 if vendorarmor[choice][2] > Player.gold and choice > -1:
-                    print"You do not have enough gold to purchase this weapon"
+                    print"You do not have enough gold to purchase this armor"
                     inarmor = False
                 if vendorarmor[choice][2] <= Player.gold and choice > -1:
                     Player.gold = Player.gold - vendorarmor[choice][2]
