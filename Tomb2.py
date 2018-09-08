@@ -1,3 +1,6 @@
+# Replaced by Tomb3.py.
+
+
 import random
 import os
 import sys
