@@ -1,0 +1,54 @@
+import splinter
+
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument("--disable-infobars")
+browser = splinter.Browser('chrome', options=chrome_options)
+browser.driver.maximize_window()
+
+def troubleshooting(self, browser, text):
+    # This function is to test all the commands that can be used to find a specific element on a page using splinter (a Selenium wrapper).
+    # Have to sleep for 30 secs because of windows port exhaustion.  Bug with google chromedriver not reusing ports.
+    # This includes  HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\Tcpip\Parameters\TcpTimedWaitDelay to 30
+    # This should be used if you are having issues finding visible elements.
+    time.sleep(30)
+    a1 = browser.find_by_name(text)
+    a1vis = self.trouble_visible(a1)
+    a2 = browser.find_by_text(text)
+    a2vis = self.trouble_visible(a2)
+    a3 = browser.find_by_value(text)
+    a3vis = self.trouble_visible(a3)
+    a4 = browser.find_option_by_value(text)
+    a4vis = self.trouble_visible(a4)
+    a5 = browser.find_option_by_text(text)
+    a5vis = self.trouble_visible(a5)
+    a6 = browser.find_by_tag(text)
+    a6vis = self.trouble_visible(a6)
+    a7 = browser.find_by_id(text)
+    a7vis = self.trouble_visible(a7)
+    a8 = browser.find_by_css(text)
+    a8vis = self.trouble_visible(a8)
+    a9 = browser.find_by_xpath(text)
+    a9vis = self.trouble_visible(a9)
+    a10 = browser.find_link_by_partial_text(text)
+    a10vis = self.trouble_visible(a10)
+    a11 = browser.find_link_by_href(text)
+    a11vis = self.trouble_visible(a11)
+    a12 = browser.find_link_by_partial_href(text)
+    a12vis = self.trouble_visible(a12)
+    a13 = browser.find_link_by_text(text)
+    a13vis = self.trouble_visible(a13)
+    a14 = browser.is_element_present_by_text(text)
+    a14vis = self.trouble_visible(a14)
+    a15 = browser.is_element_present_by_css(text)
+    a15vis = self.trouble_visible(a15)
+    a16 = browser.is_element_present_by_xpath(text)
+    a16vis = self.trouble_visible(a16)
+    a17 = browser.is_element_present_by_value(text)
+    a17vis = self.trouble_visible(a17)
+    print '-------------------------Troubleshooting Data---------------------------------------------------------'
+    print 'Find Text: %s  \nname: %s  visible: %s\ntext: %s visible: %s\nvalue: %s  visible: %s\noption by value: %s  visible: %s\noption by text: %s  visible: %s\ntag: %s  visible: %s\nid: %s  visible: %s\ncss: %s  visible: %s\nxpath: %s  visible: %s\nlink by partial text: %s  visible: %s\nlink by href: %s  visible: %s\nlink by partial href: %s  visible: %s\nlink by text:%s  visible: %s\npresent by text: %s visible: %s\npresent by css: %s  visible: %s\npresent by xpath: %s  visible: %s\npresent by value:%s   visible: %s\n' % (
+        text, a1, a1vis, a2, a2vis, a3, a3vis, a4, a4vis, a5, a5vis, a6, a6vis, a7, a7vis, a8, a8vis, a9, a9vis,
+        a10,
+        a10vis, a11, a11vis, a12, a12vis, a13, a13vis, a14, a14vis, a15, a15vis, a16, a16vis, a17, a17vis)
+    print '------------------------------------------------------------------------------------------------------'
+    return
