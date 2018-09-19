@@ -5,6 +5,15 @@ chrome_options.add_argument("--disable-infobars")
 browser = splinter.Browser('chrome', options=chrome_options)
 browser.driver.maximize_window()
 
+def trouble_visible(self, element):
+    visible_list = []
+    try:
+        for item in element:
+            visible_list.append(item.visible)
+    except:
+        pass
+    return visible_list
+
 def troubleshooting(self, browser, text):
     # This function is to test all the commands that can be used to find a specific element on a page using splinter (a Selenium wrapper).
     # Have to sleep for 30 secs because of windows port exhaustion.  Bug with google chromedriver not reusing ports.
