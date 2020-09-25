@@ -15,3 +15,7 @@
 * <b>Tomb2.py</b> - Initial version of Tomb of Robert Dread.  This version is the old version and Tomb3 should be used.
 
 * <b>Tomb3.py</b> - This is the latest version of Tomb of Robert Dread.  A text based Role Playing Dungeon game. 
+
+<h3>Python Utilities</h3>
+
+* <b>Loanpaymentcalc.py</b> - Windows utility to calculate a realistic monthly payment of a house loan.  Including maintenance costs, pmi, taxes, etc.
