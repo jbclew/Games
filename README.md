@@ -19,3 +19,5 @@
 <h3>Python Utilities</h3>
 
 * <b>Loanpaymentcalc.py</b> - Windows utility to calculate a realistic monthly payment of a house loan.  Including maintenance costs, pmi, taxes, etc.
+
+* <b>determine_row_column_calendar.py</b> - function that will calculated where a date's row and column are located within a calendar.
